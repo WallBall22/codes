@@ -270,5 +270,27 @@ msg.delete();
 })
 })
 }
-});                  
+}); 
+
+
+
+
+const bannedwords = [
+    "كل زق",
+    "كسمك",
+    "كلب",
+    "يا شرموط",
+    "كل زق و اسكت",
+    "بوت زق"
+
+  ];
+
+client.on('message',  message => {
+  if(bannedwords.some(word => message.content.includes(word))) {
+    message.delete()
+    message.reply(" احترم نفسك , يمنع الشتم في خادمنا او سوف تتعرض الي  ميوت ").then(msg => {msg.delete(5000)});;
+  };
+});         
+
+
 client.login(process.env.BOT_TOKEN);
