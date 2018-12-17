@@ -194,12 +194,6 @@ ${thisMessage}\`\`\`
 
 
 
-client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.find("name","• Codes » Member));
-    });
-
-
-
 
                    
                    
