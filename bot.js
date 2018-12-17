@@ -2,6 +2,35 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 
 
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+// كود اعطا العضو رتبة اول ما يدخل السيرفر
+
+client.on('guildMemberAdd', member=> {
+    member.addRole(member.guild.roles.find("name","• Codes » Member"));
+    });
+
+
+// حالة البوت او الوصف
+
+client.on('ready', () => {
+     client.user.setActivity("!~[ Codes ]~!",{type: 'WATCHING'})
+
+});
+
+
+
+
+
+ client.on('ready', function(){
+    client.user.setStatus("idle");
+    var ms = 1 ;
+
+});
+
+
 
 
 
@@ -107,9 +136,9 @@ client.on('message' , message => {
 
 
 client.on('message',async message => {
-    if (message.content.startsWith('#js')) {// حقوق wicked
+    if (message.content.startsWith('#js')) {
   if(!message.channel.guild) return message.reply('This Command For Servers Only !');
-  let staff = message.guild.member(message.author).roles.find('name' , '• Codes » Support');// رتبه السبورت
+  let staff = message.guild.member(message.author).roles.find('name' , 'Support');// رتبه السبورت
   if(!staff) return msg.reply('🛑 You Cant Do This Command')
       let jscodes = message.guild.channels.find(`name`, "code-js");// روم يلي ينشر الكود فيه
     if(!jscodes) return message.channel.send(":x:لم اجد الروم الخاص بنشر الاكواد");
